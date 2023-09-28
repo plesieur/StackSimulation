@@ -2,17 +2,20 @@
 
 namespace StackSimulation
 {
+    //Class to simulate a stack of integers
     public class StackClass
     {
-        private const int STACK_SIZE = 100;
-        private int _top;
-        private int[] stackArray = new int[STACK_SIZE];
+        private const int STACK_SIZE = 100;   //Size of stack
+        private int _top;                     //Pointer to Top of stck
+        private int[] stackArray = new int[STACK_SIZE];     //Actual Stack
 
         public StackClass()
         {
             _top = -1;
         }
 
+        //Push an integer onto the stack
+        //Prints an error if stack is full
         public void Push(int data)
         {
             if (_top < STACK_SIZE - 1)
@@ -26,6 +29,8 @@ namespace StackSimulation
             }
         }
 
+        //Pop the top item of the stack
+        //Returns -1 if stack is empty
         public int Pop()
         {
             int data = -1;
@@ -46,10 +51,11 @@ namespace StackSimulation
     {
         static void Main(string[] args)
         {
-            StackClass stack = new StackClass();
+            StackClass stack = new StackClass();  //Instance of StackClass to test
             Random random = new Random();
             int value;
 
+            //Test code below
             Console.WriteLine("Push 10 items");
             for (int i = 0; i < 10; i++)
             {
@@ -74,7 +80,7 @@ namespace StackSimulation
             {
                 Console.WriteLine("{1}: Pop {0}", stack.Pop(), i);
             }
-            Console.ReadLine();
+            Console.ReadLine();  //Wait for user input to exit CLI
         }
     }
 }
